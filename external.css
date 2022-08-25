@@ -1,0 +1,271 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh ;
+    overflow:auto;
+    display: block;
+    position:relative;
+    
+}
+
+.header {
+    height: 50px;
+    background-color: #666;
+    color: white; 
+    margin:0%; 
+    display: flex;
+    font-size: 24px;
+    font-family: interGoogle, Arial, Helvetica, sans-serif; 
+    position: relative;
+    align-items: center; 
+}
+
+#title {
+margin-left:20px;
+    display: inline;
+
+}
+
+#user_icon {
+    position: absolute;
+    right: 15px;
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    background-color: #cfcdcd;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#icon_content {
+
+    text-align: center;
+
+}
+.mainbox {
+    width: 100%;
+    height:calc(100vh-80px);
+    padding: 0%;
+    padding-top: 0%;
+    border: 0%;
+    margin-top: 0%;
+    background-color: #f1f1f1;
+}
+.sidebar{
+    float:left;
+    display:flex;
+    flex-direction: column;
+    width: 40px;
+    height:100vh;
+    text-align: center;
+    background-color: white;
+
+}
+
+#home{
+    margin: 10px 0px;
+}
+#add{
+    margin-bottom: 10px;
+}
+
+#help{
+    margin-top: auto;
+    margin-bottom: 10vh;
+}
+#wrapper{
+    display:none;
+    width:50%;
+    /* height:50%; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f1f1f1;
+    border:1px solid black;
+    padding:10px;
+}
+#settingsection{
+    display:none;
+    width:50%;
+    /* height:50%; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f1f1f1;
+    border:1px solid black;
+    padding:10px;
+
+}
+#enquirysection{
+    display:none;
+    width:50%;
+    /* height:50%; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f1f1f1;
+    border:1px solid black;
+    padding:10px;
+}
+
+
+#container {
+    box-sizing:border-box;
+    width: calc(100%-40px);
+    display:block;
+    height: 100%;
+    margin: 0%;
+    margin: #f1f1f1;
+    background-color: #f1f1f1;
+
+
+}
+
+#one {
+    float: left;
+    width: calc(100% - 40px) ;
+    margin: 0px;
+    padding: 0px;
+    margin-left: 0px;
+    height: 100vh;
+    background-color: #f1f1f1;
+}
+
+#left {
+    display: inline-block;
+    width: 60%;
+    height: 100%;
+    float: left;
+    border-collapse: collapse;
+    /* border-right-style: groove; */
+    margin-top: 10px;
+    margin-left: 0px;
+    padding:20px;
+    
+    background-color: #f1f1f1;
+}
+
+#left ul {
+
+    list-style-type: none;
+    padding: 0;
+
+}
+.sectioning
+{
+    margin: 10px;
+    box-sizing: border-box;
+    display:inline;
+}
+.righticon{
+    position: relative;
+    right: 10px;
+    float:right;
+}
+.lefticon span,.righticon span{
+    padding-right: 5px;
+}
+
+#right {
+    display: inline-block;
+    overflow-y:scroll;
+    overflow-x: hidden;
+    border-left-style: groove;
+    width: 40%;
+    height: 88vh;
+    float: right;
+    margin-top: 10px;
+    padding-right: 0%;
+    border-right: 0%;
+    background-color: #f1f1f1;
+    border-collapse: collapse;
+}
+
+
+
+div.first{
+    padding: 5px;
+    width: 100%;
+    margin-top:5px;
+    background-color: white;
+    margin-left:10px;
+    margin-bottom:0px;
+    border-bottom: rgba(128, 128, 128, 0.448) 1px solid;
+
+}
+
+.first .second{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+
+
+.two {
+    bottom: 0;
+    position: fixed;
+    width:100%;
+    height: 30px;
+    padding: 5px;
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+    margin-left: 40px;
+    margin-right: 0%;
+    background-color: rgb(119, 119, 119);
+}
+@media screen and (max-width: 855px) {
+  
+
+    #left, #right{
+        height: auto;
+        width: 100%;
+    }
+
+    .sidebar{
+        float:none;
+        width: 100%;
+        height: 50px;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    #home{
+        margin: 0px 10px;
+    }
+    #add{
+        margin:10px;
+    }
+
+
+    #help{
+        margin-left: auto;
+        margin-right: 5vh;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        /* margin: ; */
+    }
+
+    .mainbox{
+        overflow: auto;
+    }
+
+    .two{
+        margin: 0;
+    }
+    
+
+
+
+}
