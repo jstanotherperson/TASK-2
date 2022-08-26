@@ -1,3 +1,17 @@
+class Task{
+    constructor(ttitle,details)
+    {
+        this.ttitle=ttitle;
+        this.details=details;
+    }
+}
+
+function dateload(){
+    document.getElementById("displayingcurrentdate").innerText=new Date();
+
+}
+
+
 function add() {
     document.getElementById("wrapper").style.display = "block";
 }
@@ -19,6 +33,8 @@ function goback(){
 //For setting button
 function settingpart()
 {
+    
+
     document.getElementById("settingsection").style.display = "block";
  
 }
@@ -32,7 +48,14 @@ function back(){
 function datecalendar() {
 
 }
-function edit() {
+function edit(me) {
+    document.getElementById("ad").innerText="Edit";
+    document.getElementById("del").style.display="none";
+    const div=me.parentNode.parentNode.parentNode;
+    document.getElementById("ttitle").value= div.getElementsByTagName("h4")[0].innerHTML;
+    document.getElementById("details").value= div.getElementsByTagName("p")[0].innerHTML;
+    document.getElementById("wrapper").style.display = "block";
+
 
 }
 
@@ -44,7 +67,46 @@ function complete() {
 //Adding a new Task
 function create() {
 
-    var x = document.getElementById("right");
+let a=document.getElementById("ttitle").value;
+let b=document.getElementById("details").value;
+
+let taskList = [];
+
+if(localStorage.getItem("taskList")!=null){
+    let readjson = localStorage.getItem("taskList");
+    taskList = JSON.parse(readjson);
+}
+
+let currentTask = new Task(a,b);
+
+taskList.push(currentTask);
+
+let jsonCurrent = JSON.stringify(taskList);
+localStorage.setItem("taskList",jsonCurrent);
+
+display();
+
+    
+
+
+}
+
+
+function display(){
+    let readjson = localStorage.getItem("taskList");
+let obj = JSON.parse(readjson);
+
+console.log("objjjjj:");
+    console.log(obj[0]);
+
+
+    for(let i=obj.length-1; i>=0; i--){
+        let tt = obj[i].ttitle;
+        let dd = obj[i].details;
+
+        console.log(tt+dd);
+
+        var x = document.getElementById("right");
     var div = document.createElement("div");
     div.style.padding = "5px";
     div.style.margin = "5px";
@@ -57,8 +119,8 @@ function create() {
 
     div.innerHTML =
         `
-        <h4>${ttitle.value}</h4>
-        <p>${details.value}</p>
+        <h4>${tt}</h4>
+        <p>${dd}</p>
         <br>
         <div class="sectioning">
     <span class="lefticon">
@@ -66,7 +128,7 @@ function create() {
         <span>${calendar.value}</span>
     </span>
     <span class="righticon">
-    <button onclick="edit()"><i class='fas fa-pencil-alt'></i></button>     
+    <button onclick="edit(this)"><i class='fas fa-pencil-alt'></i></button>     
     <span>Edit</span>
     <button onclick="remove(this)"><i class='fa fa-close'></i></button>      
     <span>Remove</span>
@@ -75,13 +137,21 @@ function create() {
     </span>
 </div>`;
 
-    x.appendChild(div);
+x.appendChild(div);
     document.getElementById("wrapper").style.display = "none";
+
+
+
+    }
 
 }
 
 //For Deleting the tasks from the task Bar
 function remove(me) {
+    
+
+
+
     document.getElementById("right").removeChild(me.parentNode.parentNode.parentNode);
     document.getElementById("wrapper").style.display = "none";
 }

@@ -23,7 +23,7 @@
 
 </head>
 
-<body>
+<body onload="display()">
     <div class="header">
         <p id="title">Practice Application</p>
         <div id="user_icon">
@@ -45,9 +45,11 @@
             <br>
             <br>
         </form>
-        <button onclick="create()">Add Task</button>
-        <button onclick="deletebar()">Delete</button>
+        <button onclick="create()" id="ad">Add Task</button>
+        <button onclick="deletebar()" id="del">Delete</button>
     </div>
+    
+    
 
     <div id="settingsection">
         <h2>Setting Guide</h2>
@@ -105,7 +107,10 @@
                         <br>
                         <ul>
                             <li>
-                                <h3>Today is <br>17th Aug. 2022</h3>
+                                <!-- <h3>Today is <br>17th Aug. 2022</h3> -->
+                                <h3>Today is</h3>
+                                
+                                <h4 id="displayingcurrentdate"></h4>
                             </li>
 
                             <li>
